@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UseGuards, Request, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Request, Query, Param } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { RoutesService } from './routes.service';
@@ -12,6 +12,18 @@ export class RoutesController {
   @Get()
   search(@Query() query: SearchRoutesDto) {
     return this.routesService.search(query);
+  }
+
+  @Get('my-routes')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  getMyRoutes(@Request() req) {
+    return this.routesService.getMyRoutes(req.user.userId);
+  }
+
+  @Get(':id')
+  getById(@Param('id') id: string) {
+    return this.routesService.getById(id);
   }
 
   @Post()

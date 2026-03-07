@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import CreatePost from '@/components/Feed/CreatePost';
 import PostCard from '@/components/Feed/PostCard';
+import Navbar from '@/components/Layout/Navbar';
 import api from '@/lib/api';
 
 export default function FeedPage() {
@@ -24,21 +25,29 @@ export default function FeedPage() {
     }
   };
 
+  const handlePostCreated = () => {
+    fetchPosts();
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow-sm mb-6">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-primary-600">GeoGuide</h1>
-        </div>
-      </nav>
+      <Navbar />
 
-      <div className="max-w-2xl mx-auto px-4">
-        <CreatePost />
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        <CreatePost onPostCreated={handlePostCreated} />
 
         {loading ? (
-          <div className="text-center py-8">Yükleniyor...</div>
-        ) : (
+          <div className="text-center py-8">
+            <div className="text-gray-600">Yükleniyor...</div>
+          </div>
+        ) : posts.length > 0 ? (
           posts.map((post: any) => <PostCard key={post.id} post={post} />)
+        ) : (
+          <div className="text-center py-12 bg-white rounded-lg">
+            <div className="text-6xl mb-4">📱</div>
+            <h3 className="text-xl font-semibold mb-2">Henüz gönderi yok</h3>
+            <p className="text-gray-600">İlk gönderiyi sen oluştur!</p>
+          </div>
         )}
       </div>
     </div>

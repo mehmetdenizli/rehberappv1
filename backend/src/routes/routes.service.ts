@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateRouteDto, SearchRoutesDto } from './dto';
 
@@ -24,6 +24,49 @@ export class RoutesService {
             isVerified: true,
           },
         },
+        _count: {
+          select: {
+            ratings: true,
+            purchases: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+  }
+
+  async getById(id: string) {
+    const route = await this.prisma.route.findUnique({
+      where: { id },
+      include: {
+        guide: {
+          select: {
+            id: true,
+            username: true,
+            avatar: true,
+            isVerified: true,
+          },
+        },
+        _count: {
+          select: {
+            ratings: true,
+            purchases: true,
+          },
+        },
+      },
+    });
+
+    if (!route) {
+      throw new NotFoundException('Route not found');
+    }
+
+    return route;
+  }
+
+  async getMyRoutes(guideId: string) {
+    return this.prisma.route.findMany({
+      where: { guideId },
+      include: {
         _count: {
           select: {
             ratings: true,
