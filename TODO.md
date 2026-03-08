@@ -292,7 +292,13 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 ### 13. Ödeme Sistemi ⏸️ V2'YE ERTELENDİ
 **Durum:** Planlanmış (V2)
 
-**Not:** İlk versiyonda satın alma ve fiyatlandırma olmayacak. Rotalar ücretsiz paylaşılacak.
+**Not:** İlk versiyonda satın alma ve fiyatlandırma olmayacak. Rotalar ücretsiz paylaşılacak ve rehberlerle iletişim odaklı bir platform olacak.
+
+**✅ TAMAMLANDI - 8 Mart 2026:**
+- Price ve Purchase modelleri veritabanından kaldırıldı
+- Backend'den tüm fiyat ve satın alma referansları temizlendi
+- Frontend RouteCard'a "Rehberle İletişime Geç" butonu eklendi
+- Mesajlaşma sistemi V1.2'de eklenecek
 
 **Seçenekler:**
 - [ ] Stripe
