@@ -11,14 +11,26 @@ interface User {
 interface AuthState {
   user: User | null;
   token: string | null;
+  isInitialized: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, username: string, password: string, role?: string) => Promise<void>;
   logout: () => void;
+  initialize: () => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user') || 'null') : null,
-  token: typeof window !== 'undefined' ? localStorage.getItem('token') : null,
+  user: null,
+  token: null,
+  isInitialized: false,
+
+  initialize: () => {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+      const user = userStr ? JSON.parse(userStr) : null;
+      set({ user, token, isInitialized: true });
+    }
+  },
 
   login: async (email: string, password: string) => {
     try {
