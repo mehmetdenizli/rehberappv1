@@ -3,6 +3,9 @@ FROM node:20-alpine AS development
 
 WORKDIR /app
 
+# OpenSSL kütüphanesini ekle
+RUN apk add --no-cache openssl
+
 COPY package*.json ./
 RUN npm install
 
@@ -19,6 +22,9 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
+# OpenSSL kütüphanesini ekle
+RUN apk add --no-cache openssl
+
 COPY package*.json ./
 RUN npm ci --only=production
 
@@ -30,6 +36,9 @@ RUN npm run build
 FROM node:20-alpine AS production
 
 WORKDIR /app
+
+# OpenSSL kütüphanesini ekle
+RUN apk add --no-cache openssl
 
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
