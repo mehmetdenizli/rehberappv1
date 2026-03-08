@@ -881,3 +881,67 @@ Routes (Rotalar) modülüne geçiyoruz.
 ```bash
 git commit -m "Complete Feed module with like and comment features"
 ```
+
+
+---
+
+### AŞAMA 10: Satın Alma Sistemini Kaldırma - İletişim Odaklı Platform
+**Tarih:** 8 Mart 2026
+
+**Proje Kararı:**
+Uygulama monetizasyon yerine iletişim odaklı bir platform olacak. Rehberler ve turistler arasında doğrudan iletişim sağlanacak.
+
+**Yapılan Değişiklikler:**
+
+**Database (Prisma):**
+1. Purchase modeli tamamen kaldırıldı
+2. Route modelinden `price` alanı kaldırıldı
+3. Migration oluşturuldu:
+   ```sql
+   DROP TABLE IF EXISTS "purchases";
+   ALTER TABLE "routes" DROP COLUMN IF EXISTS "price";
+   ```
+
+**Backend:**
+1. Routes Service güncellemesi
+   - `maxPrice` filtresi kaldırıldı
+   - `purchases` count kaldırıldı
+   - Sadece `ratings` count kalıyor
+
+2. Seed dosyası temizlendi
+   - Tüm `price` değerleri kaldırıldı
+   - Purchase oluşturma kodları silindi
+
+**Frontend:**
+1. RouteCard Component yeniden tasarlandı
+   - Fiyat badge'i kaldırıldı
+   - Satış sayısı kaldırıldı
+   - "Rehberle İletişime Geç" butonu eklendi
+   - Rehber profili tıklanabilir yapıldı
+
+2. İletişim Butonu
+   - 💬 İkon ile görsel
+   - Şimdilik alert gösteriyor
+   - Mesajlaşma sistemi V1.2'de eklenecek
+
+**Kullanıcı Deneyimi:**
+- Rotalar artık ücretsiz paylaşılıyor
+- Kullanıcılar rehberlerle doğrudan iletişime geçebilecek
+- Daha sosyal, topluluk odaklı bir platform
+
+**Sonraki Adımlar:**
+- Routes modülünü tamamla (listeleme, detay sayfaları)
+- Mesajlaşma sistemi (V1.2)
+- Profil sayfaları
+
+**Git Commits:**
+```bash
+git commit -m "Remove price and purchase features from backend"
+git commit -m "Replace purchase with contact button in frontend"
+```
+
+---
+
+**Son Güncelleme:** 8 Mart 2026, 21:40
+**Versiyon:** 1.0.0-alpha
+**Durum:** Feed modülü tamamlandı, Routes modülüne geçiliyor
