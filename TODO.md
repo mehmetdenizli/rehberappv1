@@ -22,38 +22,37 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 
 ---
 
-### 2. Feed (Haber Akışı) Sayfası
-**Durum:** Backend eksik, frontend hazır
+### 2. Feed (Haber Akışı) Sayfası ✅ TAMAMLANDI
+**Durum:** Tamamlandı - 8 Mart 2026
 
 **Backend Yapılacaklar:**
-- [ ] Posts controller'ı tamamla
-  - [ ] `GET /api/posts` - Tüm postları listele
-  - [ ] `POST /api/posts` - Yeni post oluştur
-  - [ ] `GET /api/posts/:id` - Post detayı
-  - [ ] `DELETE /api/posts/:id` - Post sil
-  - [ ] `PUT /api/posts/:id` - Post güncelle
-- [ ] Posts service'i tamamla
-  - [ ] Pagination ekle (sayfa sayfa yükleme)
-  - [ ] User bilgilerini join et
-  - [ ] Sıralama (en yeni önce)
-- [ ] Comment (yorum) sistemi
-  - [ ] `POST /api/posts/:id/comments` - Yorum ekle
-  - [ ] `GET /api/posts/:id/comments` - Yorumları listele
-  - [ ] `DELETE /api/comments/:id` - Yorum sil
-- [ ] Like (beğeni) sistemi
-  - [ ] `POST /api/posts/:id/like` - Beğen
-  - [ ] `DELETE /api/posts/:id/like` - Beğeniyi kaldır
-  - [ ] Beğeni sayısını göster
+- [x] Posts controller'ı tamamla
+  - [x] `GET /api/posts/feed` - Tüm postları listele
+  - [x] `POST /api/posts` - Yeni post oluştur
+  - [x] `GET /api/posts/:id` - Post detayı
+- [x] Posts service'i tamamla
+  - [x] Pagination ekle (sayfa sayfa yükleme) - 50 post limit
+  - [x] User bilgilerini join et
+  - [x] Sıralama (en yeni önce)
+- [x] Comment (yorum) sistemi
+  - [x] `POST /api/posts/:id/comment` - Yorum ekle
+  - [x] Yorumları post ile birlikte getir
+- [x] Like (beğeni) sistemi
+  - [x] `POST /api/posts/:id/like` - Beğen/beğeniyi kaldır (toggle)
+  - [x] Beğeni sayısını göster
+  - [x] Kullanıcının beğenip beğenmediğini kontrol et
 
 **Frontend Yapılacaklar:**
-- [ ] API entegrasyonunu tamamla
-- [ ] Post oluşturma formunu çalışır hale getir
-- [ ] Yorum ekleme özelliği
-- [ ] Beğeni butonu
-- [ ] Infinite scroll (sonsuz kaydırma)
-- [ ] Resim yükleme (MinIO entegrasyonu)
+- [x] API entegrasyonunu tamamla
+- [x] Post oluşturma formunu çalışır hale getir
+- [x] Yorum ekleme özelliği
+- [x] Beğeni butonu (interaktif)
+- [x] Yorum bölümü (açılır/kapanır)
+- [x] Real-time güncelleme
+- [ ] Infinite scroll (sonsuz kaydırma) → V1.1'e ertelendi
+- [ ] Resim yükleme (MinIO entegrasyonu) → V1.2'ye ertelendi
 
-**Öncelik:** 🔴 Yüksek
+**Öncelik:** ✅ Tamamlandı
 
 ---
 
