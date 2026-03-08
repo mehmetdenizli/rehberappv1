@@ -8,17 +8,17 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 
 ## 🔴 KRİTİK - Acil Yapılması Gerekenler
 
-### 1. Login Sorunu Testi
-- [ ] Frontend login sayfasını test et
-- [ ] Browser console hatalarını kontrol et
-- [ ] API endpoint'inin doğru çağrıldığını doğrula
-- [ ] Token'ın localStorage'a kaydedildiğini kontrol et
-- [ ] Login sonrası yönlendirmenin çalıştığını test et
+### 1. Login Sorunu Testi ✅ TAMAMLANDI
+- [x] Frontend login sayfasını test et
+- [x] Browser console hatalarını kontrol et
+- [x] API endpoint'inin doğru çağrıldığını doğrula
+- [x] Token'ın localStorage'a kaydedildiğini kontrol et
+- [x] Login sonrası yönlendirmenin çalıştığını test et
 
 **Notlar:**
 - Test kullanıcısı: `ahmet.yilmaz@example.com` / `password123`
 - Beklenen endpoint: `POST http://localhost:3001/api/auth/login`
-- Sorun çözülürse PROGRESS.md'ye ekle
+- ✅ Başarıyla tamamlandı - 8 Mart 2026
 
 ---
 
@@ -72,16 +72,16 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
   - [ ] Fiyata göre filtrele
   - [ ] Rating'e göre sırala
   - [ ] Rehbere göre filtrele
-- [ ] Rota satın alma
-  - [ ] `POST /api/routes/:id/purchase` - Rota satın al
-  - [ ] Satın alma geçmişi
+- [ ] ~~Rota satın alma~~ → V2'ye ertelendi
+  - [ ] ~~`POST /api/routes/:id/purchase` - Rota satın al~~
+  - [ ] ~~Satın alma geçmişi~~
 
 **Frontend Yapılacaklar:**
 - [ ] `/routes` sayfasını tamamla
 - [ ] `/routes/[id]` detay sayfası
 - [ ] Filtreleme UI'ı
 - [ ] Arama çubuğu entegrasyonu
-- [ ] Satın alma butonu ve modal
+- [ ] ~~Satın alma butonu ve modal~~ → V2'ye ertelendi
 - [ ] Harita görünümü (Google Maps/Mapbox)
 
 **Öncelik:** 🔴 Yüksek
@@ -180,14 +180,14 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 
 **Yapılacaklar:**
 - [ ] İstatistikler
-  - [ ] Toplam kazanç
+  - [ ] ~~Toplam kazanç~~ → V2'ye ertelendi
   - [ ] Rota görüntülenme sayısı
-  - [ ] Satış sayısı
+  - [ ] ~~Satış sayısı~~ → V2'ye ertelendi
   - [ ] Takipçi artışı
 - [ ] Grafik ve chartlar
-- [ ] Son satışlar listesi
+- [ ] ~~Son satışlar listesi~~ → V2'ye ertelendi
 - [ ] Yorumlar ve rating'ler
-- [ ] Kazanç raporu (aylık/yıllık)
+- [ ] ~~Kazanç raporu (aylık/yıllık)~~ → V2'ye ertelendi
 
 **Öncelik:** 🟡 Orta
 
@@ -290,15 +290,17 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 
 ---
 
-### 13. Ödeme Sistemi
-**Durum:** Planlanmış
+### 13. Ödeme Sistemi ⏸️ V2'YE ERTELENDİ
+**Durum:** Planlanmış (V2)
+
+**Not:** İlk versiyonda satın alma ve fiyatlandırma olmayacak. Rotalar ücretsiz paylaşılacak.
 
 **Seçenekler:**
 - [ ] Stripe
 - [ ] PayPal
 - [ ] İyzico (Türkiye için)
 
-**Yapılacaklar:**
+**Yapılacaklar (V2):**
 - [ ] Ödeme gateway entegrasyonu
 - [ ] Rota satın alma akışı
 - [ ] Ödeme geçmişi
@@ -307,7 +309,7 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 - [ ] Para çekme (withdrawal)
 - [ ] Komisyon hesaplama
 
-**Öncelik:** 🟢 Düşük
+**Öncelik:** ⏸️ V2
 
 ---
 
@@ -450,6 +452,49 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 - [ ] Kubernetes (gelecekte)
 
 **Öncelik:** 🟡 Orta (MVP sonrası)
+
+---
+
+## � VERSİYON 2 - Gelecek Sürüm Özellikleri
+
+### V2.1: Monetizasyon (Para Kazanma)
+**Hedef Tarih:** TBD
+
+**Özellikler:**
+- [ ] Rota fiyatlandırma sistemi
+  - [ ] Rehberler rotalarına fiyat belirleyebilir
+  - [ ] Ücretsiz/Ücretli rota seçeneği
+  - [ ] Dinamik fiyatlandırma
+- [ ] Satın alma sistemi
+  - [ ] Rota satın alma
+  - [ ] Satın alma geçmişi
+  - [ ] Dijital fatura
+- [ ] Ödeme gateway entegrasyonu
+  - [ ] Stripe/İyzico
+  - [ ] Kredi kartı ödemeleri
+  - [ ] Güvenli ödeme
+- [ ] Kazanç sistemi
+  - [ ] Rehber kazanç paneli
+  - [ ] Para çekme (withdrawal)
+  - [ ] Komisyon yönetimi
+  - [ ] Gelir raporları
+
+### V2.2: Premium Özellikler
+**Hedef Tarih:** TBD
+
+**Özellikler:**
+- [ ] Abonelik sistemi
+  - [ ] Ücretsiz/Premium/Pro planlar
+  - [ ] Aylık/Yıllık abonelik
+- [ ] Premium rehber özellikleri
+  - [ ] Öncelikli listeleme
+  - [ ] Gelişmiş analitik
+  - [ ] Özel rozet
+  - [ ] Reklamsız deneyim
+- [ ] Premium turist özellikleri
+  - [ ] Sınırsız rota indirme
+  - [ ] Offline erişim
+  - [ ] Özel destek
 
 ---
 
