@@ -23,8 +23,10 @@ export default function LoginPage() {
     try {
       await login(formData.email, formData.password);
       router.push('/feed');
-    } catch (err) {
-      setError('Giriş başarısız. Lütfen bilgilerinizi kontrol edin.');
+    } catch (err: any) {
+      console.error('Login error:', err);
+      const errorMessage = err.response?.data?.message || err.message || 'Giriş başarısız. Lütfen bilgilerinizi kontrol edin.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

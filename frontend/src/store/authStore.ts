@@ -12,7 +12,7 @@ interface AuthState {
   user: User | null;
   token: string | null;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, username: string, password: string) => Promise<void>;
+  register: (email: string, username: string, password: string, role?: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -21,17 +21,27 @@ export const useAuthStore = create<AuthState>((set) => ({
   token: null,
 
   login: async (email: string, password: string) => {
-    const response = await api.post('/auth/login', { email, password });
-    const { user, access_token } = response.data;
-    localStorage.setItem('token', access_token);
-    set({ user, token: access_token });
+    try {
+      const response = await api.post('/auth/login', { email, password });
+      const { user, access_token } = response.data;
+      localStorage.setItem('token', access_token);
+      set({ user, token: access_token });
+    } catch (error: any) {
+      console.error('Login error in authStore:', error.response?.data || error.message);
+      throw error;
+    }
   },
 
-  register: async (email: string, username: string, password: string) => {
-    const response = await api.post('/auth/register', { email, username, password });
-    const { user, access_token } = response.data;
-    localStorage.setItem('token', access_token);
-    set({ user, token: access_token });
+  register: async (email: string, username: string, password: string, role: string = 'TOURIST') => {
+    try {
+      const response = await api.post('/auth/register', { email, username, password, role });
+      const { user, access_token } = response.data;
+      localStorage.setItem('token', access_token);
+      set({ user, token: access_token });
+    } catch (error: any) {
+      console.error('Register error in authStore:', error.response?.data || error.message);
+      throw error;
+    }
   },
 
   logout: () => {

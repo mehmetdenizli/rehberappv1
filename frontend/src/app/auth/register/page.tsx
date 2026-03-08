@@ -26,7 +26,7 @@ export default function RegisterPage() {
     }
 
     try {
-      await register(formData.email, formData.username, formData.password);
+      await register(formData.email, formData.username, formData.password, formData.role);
       router.push('/feed');
     } catch (err: any) {
       setError(err.response?.data?.message || 'Kayıt başarısız. Lütfen tekrar deneyin.');
