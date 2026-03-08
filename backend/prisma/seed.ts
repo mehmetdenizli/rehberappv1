@@ -7,7 +7,6 @@ async function main() {
   console.log('🌱 Seeding database...');
 
   // Önce mevcut verileri temizle
-  await prisma.purchase.deleteMany();
   await prisma.rating.deleteMany();
   await prisma.comment.deleteMany();
   await prisma.follow.deleteMany();
@@ -157,7 +156,6 @@ async function main() {
         title: 'İstanbul Tarihi Yarımada Turu',
         description: 'Sultanahmet, Ayasofya, Topkapı Sarayı ve Kapalıçarşı\'yı kapsayan tam gün turu. Osmanlı ve Bizans tarihini yerinde keşfedin.',
         geoJson: { type: 'LineString', coordinates: [[28.9784, 41.0082], [28.9802, 41.0086]] },
-        price: 450,
         region: 'İstanbul',
         category: 'Tarihi',
         guideId: guides[0].id,
@@ -170,7 +168,6 @@ async function main() {
         title: 'Boğaz Turu ve Balık Lokantası',
         description: 'Boğaz\'ın iki yakasını gemi ile gezerek tarihi yalıları, köprüleri ve kaleleri görün. Akşam balık yemeği dahil.',
         geoJson: { type: 'LineString', coordinates: [[29.0208, 41.0392], [29.0875, 41.1753]] },
-        price: 380,
         region: 'İstanbul',
         category: 'Gastronomi',
         guideId: guides[0].id,
@@ -183,7 +180,6 @@ async function main() {
         title: 'Beyoğlu Kültür ve Sanat Turu',
         description: 'İstiklal Caddesi, Galata Kulesi, müzeler ve sanat galerileri. Modern İstanbul\'u keşfedin.',
         geoJson: { type: 'LineString', coordinates: [[28.9744, 41.0297], [28.9784, 41.0351]] },
-        price: 320,
         region: 'İstanbul',
         category: 'Kültür',
         guideId: guides[0].id,
@@ -200,7 +196,6 @@ async function main() {
         title: 'Kapadokya Balon Turu ve Vadiler',
         description: 'Gün doğumunda sıcak hava balonu turu, ardından Göreme Açık Hava Müzesi ve peri bacaları gezisi.',
         geoJson: { type: 'Point', coordinates: [34.8283, 38.6431] },
-        price: 850,
         region: 'Nevşehir',
         category: 'Doğa',
         guideId: guides[1].id,
@@ -213,7 +208,6 @@ async function main() {
         title: 'Yeraltı Şehirleri Keşfi',
         description: 'Derinkuyu ve Kaymaklı yeraltı şehirlerini keşfedin. Antik dönem mühendislik harikası.',
         geoJson: { type: 'Point', coordinates: [34.7333, 38.3833] },
-        price: 420,
         region: 'Nevşehir',
         category: 'Tarihi',
         guideId: guides[1].id,
@@ -226,7 +220,6 @@ async function main() {
         title: 'Kapadokya Şarap Rotası',
         description: 'Bölgenin ünlü şarap mahzenlerini ziyaret edin. Tadım ve yerel lezzetler dahil.',
         geoJson: { type: 'Point', coordinates: [34.8553, 38.6369] },
-        price: 380,
         region: 'Nevşehir',
         category: 'Gastronomi',
         guideId: guides[1].id,
@@ -243,7 +236,6 @@ async function main() {
         title: 'Efes Antik Kenti Turu',
         description: 'Dünyanın en iyi korunmuş antik kentlerinden Efes\'i profesyonel rehberlik eşliğinde gezin.',
         geoJson: { type: 'Point', coordinates: [27.3408, 37.9392] },
-        price: 480,
         region: 'İzmir',
         category: 'Tarihi',
         guideId: guides[2].id,
@@ -256,7 +248,6 @@ async function main() {
         title: 'Şirince Köyü ve Şarap Tadımı',
         description: 'Otantik Şirince köyünde gezinti, ev yapımı şaraplar ve yerel ürünler tadımı.',
         geoJson: { type: 'Point', coordinates: [27.4486, 37.9456] },
-        price: 350,
         region: 'İzmir',
         category: 'Gastronomi',
         guideId: guides[2].id,
@@ -269,7 +260,6 @@ async function main() {
         title: 'Pamukkale Travertenleri',
         description: 'Beyaz cennet Pamukkale travertenleri ve Hierapolis antik kenti gezisi.',
         geoJson: { type: 'Point', coordinates: [29.1211, 37.9203] },
-        price: 520,
         region: 'Denizli',
         category: 'Doğa',
         guideId: guides[2].id,
@@ -286,7 +276,6 @@ async function main() {
         title: 'Köprülü Kanyon Rafting',
         description: 'Adrenalin dolu rafting macerası. Tüm ekipman ve öğle yemeği dahil. Deneyim gerekmez.',
         geoJson: { type: 'Point', coordinates: [31.1656, 37.2153] },
-        price: 420,
         region: 'Antalya',
         category: 'Macera',
         guideId: guides[3].id,
@@ -299,7 +288,6 @@ async function main() {
         title: 'Likya Yolu Trekking',
         description: '2 günlük Likya Yolu trekking turu. Kamp, yemek ve rehberlik dahil.',
         geoJson: { type: 'LineString', coordinates: [[29.6442, 36.5667], [29.7167, 36.6333]] },
-        price: 680,
         region: 'Antalya',
         category: 'Doğa',
         guideId: guides[3].id,
@@ -312,7 +300,6 @@ async function main() {
         title: 'Antalya Şehir Turu',
         description: 'Kaleiçi, Düden Şelalesi ve antik limanı kapsayan şehir turu.',
         geoJson: { type: 'Point', coordinates: [30.7133, 36.8969] },
-        price: 280,
         region: 'Antalya',
         category: 'Şehir Turu',
         guideId: guides[3].id,
@@ -329,7 +316,6 @@ async function main() {
         title: 'Ayder Yaylası Doğa Turu',
         description: 'Yeşilin her tonunu göreceğiniz Ayder Yaylası, şelaleler ve termal kaynaklar turu.',
         geoJson: { type: 'Point', coordinates: [40.9667, 41.1333] },
-        price: 390,
         region: 'Rize',
         category: 'Doğa',
         guideId: guides[4].id,
@@ -342,7 +328,6 @@ async function main() {
         title: 'Kaçkar Dağları Trekking',
         description: '3 günlük Kaçkar Dağları trekking macerası. Kamp, yemek ve ekipman dahil.',
         geoJson: { type: 'Point', coordinates: [41.1333, 40.8333] },
-        price: 950,
         region: 'Rize',
         category: 'Macera',
         guideId: guides[4].id,
@@ -355,7 +340,6 @@ async function main() {
         title: 'Uzungöl ve Çay Bahçeleri',
         description: 'Uzungöl\'ün eşsiz manzarası ve çay bahçeleri gezisi. Yerel kahvaltı dahil.',
         geoJson: { type: 'Point', coordinates: [40.3000, 40.6167] },
-        price: 320,
         region: 'Trabzon',
         category: 'Doğa',
         guideId: guides[4].id,
@@ -454,24 +438,13 @@ async function main() {
 
   console.log('✅ Ratings created');
 
-  // Satın almalar
-  await Promise.all([
-    prisma.purchase.create({ data: { userId: tourists[0].id, routeId: routes[0].id, amount: routes[0].price } }),
-    prisma.purchase.create({ data: { userId: tourists[1].id, routeId: routes[0].id, amount: routes[0].price } }),
-    prisma.purchase.create({ data: { userId: tourists[2].id, routeId: routes[3].id, amount: routes[3].price } }),
-    prisma.purchase.create({ data: { userId: tourists[3].id, routeId: routes[6].id, amount: routes[6].price } }),
-    prisma.purchase.create({ data: { userId: tourists[4].id, routeId: routes[9].id, amount: routes[9].price } }),
-  ]);
-
-  console.log('✅ Purchases created');
-
   console.log('\n🎉 Seeding completed successfully!\n');
   console.log('📊 Summary:');
   console.log(`   - 5 Guides created`);
   console.log(`   - 5 Tourists created`);
   console.log(`   - ${routes.length} Routes created`);
   console.log(`   - ${posts.length} Posts created`);
-  console.log(`   - Comments, follows, ratings, and purchases added`);
+  console.log(`   - Comments, follows, and ratings added`);
   console.log('\n🔐 Login credentials:');
   console.log('   Email: ahmet.yilmaz@example.com (or any other user)');
   console.log('   Password: password123\n');

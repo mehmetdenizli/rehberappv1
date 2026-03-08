@@ -11,7 +11,6 @@ export class RoutesService {
 
     if (query.region) where.region = query.region;
     if (query.category) where.category = query.category;
-    if (query.maxPrice) where.price = { lte: parseFloat(query.maxPrice) };
 
     return this.prisma.route.findMany({
       where,
@@ -27,7 +26,6 @@ export class RoutesService {
         _count: {
           select: {
             ratings: true,
-            purchases: true,
           },
         },
       },
@@ -50,7 +48,6 @@ export class RoutesService {
         _count: {
           select: {
             ratings: true,
-            purchases: true,
           },
         },
       },
@@ -70,7 +67,6 @@ export class RoutesService {
         _count: {
           select: {
             ratings: true,
-            purchases: true,
           },
         },
       },
