@@ -110,25 +110,28 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 
 ## 🟡 ORTA ÖNCELİKLİ - Kullanıcı Deneyimi
 
-### 5. Profil Sayfaları
-**Durum:** Eksik
+### 5. Profil Sayfaları ✅ TAMAMLANDI
+**Durum:** Tamamlandı - 9 Mart 2026
 
 **Backend Yapılacaklar:**
-- [ ] `GET /api/users/:id` - Kullanıcı profili
-- [ ] `PUT /api/users/profile` - Profil güncelle
-- [ ] `POST /api/users/avatar` - Avatar yükle
-- [ ] `GET /api/users/:id/routes` - Kullanıcının rotaları
-- [ ] `GET /api/users/:id/posts` - Kullanıcının postları
+- [x] `GET /api/users/:id` - Kullanıcı profili
+- [ ] `PUT /api/users/profile` - Profil güncelle → V1.1
+- [ ] `POST /api/users/avatar` - Avatar yükle → V1.2
+- [x] `GET /api/users/:id/routes` - Kullanıcının rotaları (routes endpoint'i kullanılıyor)
+- [x] `GET /api/users/:id/posts` - Kullanıcının postları (posts endpoint'i kullanılıyor)
 
 **Frontend Yapılacaklar:**
-- [ ] `/profile/[id]` sayfası oluştur
-- [ ] Profil düzenleme sayfası
-- [ ] Avatar yükleme
-- [ ] Kullanıcının rotalarını göster
-- [ ] Kullanıcının postlarını göster
-- [ ] İstatistikler (takipçi, takip, rota sayısı)
+- [x] `/profile/[id]` sayfası oluştur
+- [x] Profil header (cover, avatar, bio)
+- [x] İstatistikler (rota, post, takipçi sayısı)
+- [x] Kullanıcının rotalarını göster
+- [x] Kullanıcının postlarını göster
+- [x] Kendi profili vs başkasının profili ayrımı
+- [x] Mesaj gönder butonu
+- [ ] Profil düzenleme sayfası → V1.1
+- [ ] Avatar yükleme → V1.2
 
-**Öncelik:** 🟡 Orta
+**Öncelik:** ✅ Tamamlandı
 
 ---
 

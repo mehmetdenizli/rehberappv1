@@ -1126,3 +1126,109 @@ useEffect(() => {
 ```bash
 git commit -m "Enhance Navbar with dropdown user menu and mobile support"
 ```
+
+
+---
+
+### AŞAMA 13: Kullanıcı Profil Sayfası
+**Tarih:** 9 Mart 2026
+
+**Yapılanlar:**
+
+**Backend:**
+1. Users Controller güncellendi
+   - `GET /api/users/:id` endpoint'i eklendi
+   - User detay bilgisi döndürülüyor
+   - Password güvenli şekilde exclude edildi
+
+2. Users Service güncellendi
+   - findById metodu güvenli hale getirildi
+   - Sadece public bilgiler döndürülüyor
+
+**Frontend - Profile Page (`/profile/[id]`):**
+
+1. **Profile Header**
+   - Gradient cover image
+   - Büyük avatar (initial ile)
+   - Kullanıcı adı ve verified badge
+   - Rol badge'i (Rehber/Turist)
+   - Bio gösterimi
+   - Action buttons (Edit Profile / Send Message)
+
+2. **İstatistikler**
+   - Rota sayısı (rehberler için)
+   - Gönderi sayısı
+   - Takipçi sayısı (placeholder)
+   - Takip sayısı (placeholder)
+
+3. **Tab Navigation** (Rehberler için)
+   - Rotalar tab
+   - Gönderiler tab
+   - Active state gösterimi
+
+4. **Content Display**
+   - Rotalar: Grid layout (3 sütun)
+   - Gönderiler: List layout
+   - Empty states
+   - Loading states
+
+5. **Özellikler**
+   - Kendi profili kontrolü (isOwnProfile)
+   - Rehber kontrolü (isGuide)
+   - Conditional rendering
+   - Responsive design
+
+**Kullanıcı Akışları:**
+
+**Kendi Profilini Görüntüleme:**
+1. Navbar'dan "Profilim" tıkla
+2. Profil sayfası açılır
+3. "Profili Düzenle" butonu görünür
+4. Rotalar ve postlar görüntülenir
+
+**Başkasının Profilini Görüntüleme:**
+1. Rota detayında veya post'ta kullanıcıya tıkla
+2. Profil sayfası açılır
+3. "Mesaj Gönder" butonu görünür
+4. Kullanıcının içeriği görüntülenir
+
+**UI Detayları:**
+```typescript
+// Avatar with initial
+<div className="w-32 h-32 bg-white rounded-full">
+  <span className="text-5xl">
+    {user.username.charAt(0).toUpperCase()}
+  </span>
+</div>
+
+// Stats display
+<div className="flex gap-8">
+  <div>
+    <div className="text-2xl font-bold">{routes.length}</div>
+    <div className="text-sm text-gray-600">Rota</div>
+  </div>
+</div>
+```
+
+**Test Sonuçları:**
+```bash
+# User profile
+curl GET /api/users/:id
+✅ Profil bilgisi geldi
+
+# Profil sayfası
+http://localhost:3000/profile/:id
+✅ Sayfa açıldı
+✅ Rotalar görüntülendi
+✅ Postlar görüntülendi
+```
+
+**Sonraki Adımlar:**
+- Profil düzenleme sayfası (V1.1)
+- Avatar yükleme (V1.2)
+- Takip sistemi (V1.1)
+
+**Git Commit:**
+```bash
+git commit -m "Add user profile page with routes and posts"
+```
