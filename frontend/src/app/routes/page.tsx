@@ -11,7 +11,6 @@ export default function RoutesPage() {
   const [filters, setFilters] = useState({
     region: '',
     category: '',
-    maxPrice: '',
   });
 
   useEffect(() => {
@@ -23,7 +22,6 @@ export default function RoutesPage() {
       const params = new URLSearchParams();
       if (filters.region) params.append('region', filters.region);
       if (filters.category) params.append('category', filters.category);
-      if (filters.maxPrice) params.append('maxPrice', filters.maxPrice);
 
       const response = await api.get(`/routes?${params}`);
       setRoutes(response.data);
@@ -47,7 +45,7 @@ export default function RoutesPage() {
         <h1 className="text-3xl font-bold mb-6">Rotaları Keşfet</h1>
 
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             <input
               type="text"
               placeholder="Bölge (örn: İstanbul)"
@@ -62,18 +60,11 @@ export default function RoutesPage() {
               value={filters.category}
               onChange={(e) => setFilters({ ...filters, category: e.target.value })}
             />
-            <input
-              type="number"
-              placeholder="Max Fiyat"
-              className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              value={filters.maxPrice}
-              onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })}
-            />
             <button
               onClick={handleSearch}
               className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition"
             >
-              Ara
+              🔍 Ara
             </button>
           </div>
         </div>
