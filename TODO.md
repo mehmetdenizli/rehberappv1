@@ -56,34 +56,35 @@ Bu dosya, projenin eksik özelliklerini, gelecek geliştirmeleri ve iyileştirme
 
 ---
 
-### 3. Routes (Rotalar) Modülü
-**Durum:** Backend eksik, frontend kısmen hazır
+### 3. Routes (Rotalar) Modülü ✅ TAMAMLANDI
+**Durum:** Tamamlandı - 8 Mart 2026
 
 **Backend Yapılacaklar:**
-- [ ] Routes modülü oluştur
-  - [ ] `GET /api/routes` - Tüm rotaları listele
-  - [ ] `GET /api/routes/:id` - Rota detayı
-  - [ ] `POST /api/routes` - Yeni rota oluştur (sadece rehberler)
-  - [ ] `PUT /api/routes/:id` - Rota güncelle
-  - [ ] `DELETE /api/routes/:id` - Rota sil
-- [ ] Filtreleme ve arama
-  - [ ] Bölgeye göre filtrele
-  - [ ] Fiyata göre filtrele
-  - [ ] Rating'e göre sırala
-  - [ ] Rehbere göre filtrele
+- [x] Routes modülü oluştur
+  - [x] `GET /api/routes` - Tüm rotaları listele
+  - [x] `GET /api/routes/:id` - Rota detayı
+  - [x] `POST /api/routes` - Yeni rota oluştur (sadece rehberler)
+  - [ ] `PUT /api/routes/:id` - Rota güncelle → V1.1
+  - [ ] `DELETE /api/routes/:id` - Rota sil → V1.1
+- [x] Filtreleme ve arama
+  - [x] Bölgeye göre filtrele
+  - [x] Kategoriye göre filtrele
+  - [x] Rating'e göre sırala
 - [ ] ~~Rota satın alma~~ → V2'ye ertelendi
   - [ ] ~~`POST /api/routes/:id/purchase` - Rota satın al~~
   - [ ] ~~Satın alma geçmişi~~
 
 **Frontend Yapılacaklar:**
-- [ ] `/routes` sayfasını tamamla
-- [ ] `/routes/[id]` detay sayfası
-- [ ] Filtreleme UI'ı
-- [ ] Arama çubuğu entegrasyonu
+- [x] `/routes` sayfasını tamamla
+- [x] `/routes/[id]` detay sayfası
+- [x] Filtreleme UI'ı (bölge, kategori)
+- [x] "Rehberle İletişime Geç" butonu
+- [x] Rehber profil linki
+- [ ] Arama çubuğu entegrasyonu → V1.1
 - [ ] ~~Satın alma butonu ve modal~~ → V2'ye ertelendi
-- [ ] Harita görünümü (Google Maps/Mapbox)
+- [ ] Harita görünümü (Google Maps/Mapbox) → V1.2
 
-**Öncelik:** 🔴 Yüksek
+**Öncelik:** ✅ Tamamlandı
 
 ---
 

@@ -945,3 +945,95 @@ git commit -m "Replace purchase with contact button in frontend"
 **Son Güncelleme:** 8 Mart 2026, 21:40
 **Versiyon:** 1.0.0-alpha
 **Durum:** Feed modülü tamamlandı, Routes modülüne geçiliyor
+
+
+---
+
+### AŞAMA 11: Routes (Rotalar) Modülü Tamamlandı
+**Tarih:** 8 Mart 2026
+
+**Yapılanlar:**
+
+**Backend:**
+- Routes modülü zaten hazırdı (önceki aşamalarda oluşturulmuş)
+- Endpoint'ler:
+  - `GET /api/routes` - Tüm rotaları listele (filtreleme ile)
+  - `GET /api/routes/:id` - Rota detayı
+  - `POST /api/routes` - Yeni rota oluştur (rehberler için)
+  - `GET /api/routes/my-routes` - Rehberin kendi rotaları
+- Filtreler: region, category
+- 15 test rotası mevcut (seed data)
+
+**Frontend - Routes List Page (`/routes`):**
+1. Temiz 3 sütunlu filtre sistemi
+   - Bölge filtresi
+   - Kategori filtresi
+   - Arama butonu
+2. Grid layout (3 sütun)
+3. RouteCard component kullanımı
+4. Loading ve empty state'ler
+5. Responsive tasarım
+
+**Frontend - Route Detail Page (`/routes/[id]`):**
+1. Hero Section
+   - Büyük gradient arka plan
+   - Kategori badge'i
+   - Responsive yükseklik
+
+2. Header Bölümü
+   - Büyük başlık (4xl)
+   - Bölge ve rating badge'leri
+   - Prominent "Rehberle İletişime Geç" butonu
+
+3. İçerik Bölümleri
+   - Detaylı açıklama
+   - Harita placeholder (Google Maps/Mapbox için hazır)
+   - Rehber bilgi kartı (tıklanabilir)
+
+4. Navigasyon
+   - Geri dön butonu
+   - Rehber profile linki
+
+**Özellikler:**
+- ✅ Rota listeleme
+- ✅ Rota detay görüntüleme
+- ✅ Filtreleme (bölge, kategori)
+- ✅ İletişim butonu
+- ✅ Rehber profil linki
+- ✅ Rating gösterimi
+- ✅ Loading states
+- ✅ Error handling
+
+**Test Sonuçları:**
+```bash
+# Rota listesi
+curl GET /api/routes
+✅ 15 rota döndü
+
+# Rota detayı
+curl GET /api/routes/:id
+✅ Detaylı bilgi geldi
+
+# Filtreleme
+curl GET /api/routes?region=İstanbul
+✅ Filtreleme çalışıyor
+```
+
+**Kullanıcı Akışı:**
+1. Kullanıcı `/routes` sayfasına gider
+2. Bölge/kategori filtresi uygular
+3. Rota kartına tıklar
+4. Detay sayfasında rotayı inceler
+5. "Rehberle İletişime Geç" butonuna tıklar
+6. (Şimdilik alert, V1.2'de mesajlaşma)
+
+**Sonraki Adımlar:**
+- Navbar düzeltmeleri
+- Profil sayfaları
+- Mesajlaşma sistemi (V1.2)
+- Harita entegrasyonu (V1.2)
+
+**Git Commit:**
+```bash
+git commit -m "Complete Routes module with list and detail pages"
+```
