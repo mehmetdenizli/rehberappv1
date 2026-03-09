@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards, Param } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { UsersService } from './users.service';
@@ -13,5 +13,12 @@ export class UsersController {
   @ApiBearerAuth()
   findAll() {
     return this.usersService.findAll();
+  }
+
+  @Get(':id')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  findOne(@Param('id') id: string) {
+    return this.usersService.findById(id);
   }
 }
